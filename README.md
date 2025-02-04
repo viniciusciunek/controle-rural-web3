@@ -1,59 +1,89 @@
-# ControleRural
+# Controle Rural
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
+Este projeto tem como objetivo implementar uma aplicação web para controle de fluxo de dados gerais de uma fazenda. O sistema visa gerenciar a entrada de mercadorias, gastos e despesas mensais, além de permitir o cadastro de fornecedores. A aplicação será desenvolvida com o framework Angular.
 
-## Development server
+## Tema e Escopo
 
-To start a local development server, run:
+O tema da aplicação é o controle de dados de uma fazenda, com foco nas seguintes funcionalidades:
 
-```bash
-ng serve
-```
+- Controle de entrada de mercadorias;
+- Controle de gastos e despesas mensais;
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Funcionalidades Principais
 
-## Code scaffolding
+- Cadastro e listagem de mercadorias
+- Registro de despesas e receitas
+- Visualização de relatórios de entrada e saída
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Repositório do GitHub
 
-```bash
-ng generate component component-name
-```
+[Link para o repositório no GitHub](https://github.com/viniciusciunek/controle-rural-web3)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Protótipo
 
-```bash
-ng generate --help
-```
+[Protótipo da Aplicação no Figma](https://www.figma.com)
 
-## Building
+## Endereço de Deploy
 
-To build the project run:
+[Link para a aplicação no GitHub Pages](https://usuario.github.io/)
 
-```bash
-ng build
-```
+## Checklist de Implementação
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### RA1 - Prototipar e projetar interfaces gráficas de usuário
 
-## Running unit tests
+- [x] ID1: Prototipagem de interfaces que demonstram usabilidade
+- [x] ID2: Design de interfaces responsivas
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### RA2 - Criar e reutilizar componentes em frameworks frontend
 
-```bash
-ng test
-```
+- [ ] ID3: Desenvolvimento de componentes reutilizáveis
+- [x] ID4: Integração de frameworks CSS
+- [ ] ID5: Aplicação de diretivas estruturais
+- [ ] ID6: Criação de listas e galerias dinâmicas
+- [ ] ID7: Uso eficaz de Pipes para formatação de dados
 
-## Running end-to-end tests
+### RA3 - Sincronizar dados entre interface gráfica e modelo de dados
 
-For end-to-end (e2e) testing, run:
+- [ ] ID8: Aplicação de one-way data binding
+- [ ] ID9: Event binding para interação com o modelo
+- [ ] ID10: Implementação de two-way data binding
+- [ ] ID11: Uso de variáveis de template
 
-```bash
-ng e2e
-```
+### RA4 - Implementar comunicação entre componentes
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- [ ] ID12: Comunicação entre componentes via serviços
+- [ ] ID13: Uso das diretivas @Input e @Output
 
-## Additional Resources
+### RA5 - Criar interfaces de navegação intuitivas
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [ ] ID14: Configuração de rotas na aplicação
+- [ ] ID15: Passagem de dados entre componentes
+- [ ] ID16: Estrutura de navegação aninhada
+- [ ] ID17: Aplicação de guardas de rotas
+
+### RA6 - Realizar requisições assíncronas
+
+- [ ] ID18: Requisições a uma API pública
+- [ ] ID19: Requisições a uma API simulada
+- [ ] ID20: Tratamento de respostas de requisições
+- [ ] ID21: Validações de entrada em formulários
+- [ ] ID22: Desabilitação de submit em campos inválidos
+- [ ] ID23: Uso de Promises para tratar respostas
+- [ ] ID24: Uso de Observables para tratar respostas
+
+### RA7 - Gerenciar o código-fonte de maneira eficiente
+
+- [ ] ID25: Criação do repositório no GitHub com Gitflow
+- [ ] ID26: Colaboração efetiva no desenvolvimento
+- [ ] ID27: Configuração e execução do processo de build
+
+## Manual de Execução
+
+1. Clonar o repositório com `git clone`
+2. Acessar o diretório do projeto
+3. Instalar as dependências com `npm install`
+4. Executar o projeto com `ng serve`
+
+## Licença
+
+Este projeto é licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
