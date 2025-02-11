@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { Produto, ProdutosService } from './../../services/produtos.service';
+import { Component } from '@angular/core';
+import { ProdutosService } from '../../../services/produtos.service';
 
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+export interface Produto {
+  id: number;
+  nome: string;
+  quantidade: number;
+  valor: number;
+}
 
 @Component({
-  selector: 'app-produtos',
-  templateUrl: './produtos.component.html',
-  styleUrls: ['./produtos.component.css'],
-  imports: [
-    FormsModule, CommonModule
-  ]
+  selector: 'app-novo-produto',
+  imports: [],
+  templateUrl: './novo-produto.component.html',
+  styleUrl: './novo-produto.component.css'
 })
-
-export class ProdutosComponent implements OnInit {
+export class NovoProdutoComponent {
 
   produtos: Produto[] = [];
   produtoForm: Produto = { id: 0, nome: '', quantidade: 0, valor: 0 };
@@ -26,7 +27,7 @@ export class ProdutosComponent implements OnInit {
   }
 
   listarProdutos(): void {
-    this.produtos = this.produtosService.listarProdutos()
+    // this.produtos = this.produtosService.listarProdutos()
   }
 
   salvarProduto(): void {

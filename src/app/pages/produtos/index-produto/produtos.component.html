@@ -1,0 +1,31 @@
+<div class="p-2">
+  <h2>Gestão de Produtos (MVP)</h2>
+
+
+
+<!-- LISTAGEM -->
+
+
+<table class="min-w-full bg-gray-50 rounded-lg shadow">
+  <thead>
+    <tr class="text-sm font-semibold text-left text-blue-950 uppercase bg-blue-300">
+      <th class="px-4 py-2 text-center border-b">ID</th>
+      <th class="px-4 py-2 text-center border-b">Nome</th>git
+      <th class="px-4 py-2 text-center border-b">Preço</th>
+      <th class="px-4 py-2 text-center border-b">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="hover:bg-blue-50" *ngFor="let p of produtos">
+      <td class="py-2 font-bold text-center text-gray-800 border-b">{{ p.id }}</td>
+      <td class="py-2 font-bold text-center text-gray-800 border-b">{{ p.nome }}</td>
+      <td class="py-2 font-bold text-center text-gray-800 border-b">{{ p.preco }}</td>
+      <td class="py-2 font-bold text-center text-gray-800 border-b">
+        <!-- <button (click)="editar(p)" class="rounded bg-blue-500 text-white cursor-pointer hover:bg-blue-600 px-8 " title="Editar">
+            EDITAR
+        </button> -->
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
