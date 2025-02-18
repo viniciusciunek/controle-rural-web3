@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import { Injectable } from '@angular/core';
+import { __classPrivateFieldGet } from 'tslib';
 
 export interface Produto {
   id: number;
@@ -33,13 +34,21 @@ export class ProdutosService {
   //   return this.produtos.find(produto => produto.id === id);
   // }
 
-  // criarProduto(produto: Produto): void {
-  //   const novoId = this.produtos.length > 0
-  //     ? Math.max(...this.produtos.map(p => p.id)) + 1
-  //     : 1;
-  //   produto.id = novoId;
-  //   this.produtos.push(produto);
-  // }
+  async criarProduto(produto: Produto): Promise<boolean> {
+    try {
+      const novoId = (await this.listarProdutos()).length + 1
+
+      produto.id = novoId;
+
+      const response = await Axios.post('http://localhost:3000/produtos', produto);
+
+      return true;
+    } catch (error) {
+      console.log(error)
+
+      return false;
+    }
+  }
 
   // atualizarProduto(produto: Produto): void {
   //   const index = this.produtos.findIndex(p => p.id === produto.id);
