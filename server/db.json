@@ -2,8 +2,8 @@
   "produtos": [
     {
       "id": "2",
-      "nome": "Produto 02",
-      "preco": 200,
+      "nome": "Produto 02222",
+      "preco": 200222,
       "marca": "Marca 02"
     },
     {
@@ -13,10 +13,34 @@
       "marca": "Teste Marca"
     },
     {
-      "id": "5",
-      "nome": "Produto 05",
-      "preco": 5,
-      "marca": "Marca 05"
+      "id": "3",
+      "nome": "maujricio",
+      "preco": 123,
+      "marca": "teste"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "8099",
+      "nome": "Mauricio Camillo Stempinhaki",
+      "email": "asdas@penis.com",
+      "senha": "asdasda",
+      "cep": "85055090",
+      "logradouro": "Rua Sorocaba",
+      "bairro": "Conradinho",
+      "localidade": "Guarapuava",
+      "uf": "PR"
+    },
+    {
+      "id": "383a",
+      "nome": "Mauricio Camillo Stempinhaki",
+      "email": "mau@mau.com",
+      "senha": "maumau",
+      "cep": "85055325",
+      "logradouro": "Rua Iguaraçu",
+      "bairro": "Conradinho",
+      "localidade": "Guarapuava",
+      "uf": "PR"
     }
   ]
 }

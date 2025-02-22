@@ -1,0 +1,76 @@
+<div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
+    <h2 class="text-2xl font-semibold text-center text-green-700">Registro</h2>
+  
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-4">
+      <!-- Nome -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Nome</label>
+        <input type="text" formControlName="nome" class="w-full p-2 border rounded" [class.border-red-500]="isInvalid('nome')" />
+      </div>
+  
+      <!-- E-mail -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">E-mail</label>
+        <input type="email" formControlName="email" class="w-full p-2 border rounded" [class.border-red-500]="isInvalid('email')" />
+      </div>
+  
+      <!-- Senha -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Senha</label>
+        <input type="password" formControlName="senha" class="w-full p-2 border rounded" [class.border-red-500]="isInvalid('senha')" />
+      </div>
+  
+      <!-- CEP -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">CEP</label>
+        <input 
+          type="text" 
+          formControlName="cep" 
+          class="w-full p-2 border rounded" 
+          (input)="formatCep($event)" 
+          (blur)="buscarCep()"
+          placeholder="Digite o CEP (somente números)"
+          maxlength="9"
+          [class.border-red-500]="isInvalid('cep')"
+        />
+      </div>
+  
+      <!-- Rua -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Rua</label>
+        <input type="text" formControlName="rua" class="w-full p-2 border rounded" readonly />
+      </div>
+  
+      <!-- Bairro -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Bairro</label>
+        <input type="text" formControlName="bairro" class="w-full p-2 border rounded" readonly />
+      </div>
+  
+      <!-- Localidade -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Localidade</label>
+        <input type="text" formControlName="localidade" class="w-full p-2 border rounded" readonly />
+      </div>
+  
+      <!-- UF -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">UF</label>
+        <input type="text" formControlName="uf" class="w-full p-2 border rounded" readonly />
+      </div>
+  
+      <!-- Mensagens de Erro e Sucesso -->
+      <div *ngIf="errorMessage" class="text-red-500 text-sm">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="successMessage" class="text-green-500 text-sm">
+        {{ successMessage }}
+      </div>
+  
+      <!-- Botão de Registro -->
+      <button type="submit" class="w-full bg-green-700 text-white p-2 rounded hover:bg-green-200 transition">
+        Cadastrar
+      </button>
+    </form>
+  </div>
+  
