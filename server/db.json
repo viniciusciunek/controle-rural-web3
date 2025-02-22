@@ -1,67 +1,22 @@
 {
   "produtos": [
     {
-      "id": "1",
-      "nome": "Produto 01",
-      "preco": 100,
-      "marca": "Marca 01"
-    },
-    {
       "id": "2",
       "nome": "Produto 02",
       "preco": 200,
       "marca": "Marca 02"
     },
     {
-      "id": "3",
-      "nome": "Produto 03",
-      "preco": 300,
-      "marca": "Marca 03"
+      "id": "4",
+      "nome": "Produto 04",
+      "preco": 4,
+      "marca": "Teste Marca"
     },
     {
-      "id": "333"
-    },
-    {
-      "id": 0,
-      "nome": "",
-      "preco": 0,
-      "marca": ""
-    },
-    {
-      "id": 0,
-      "nome": "",
-      "preco": 0,
-      "marca": ""
-    },
-    {
-      "id": 7,
-      "nome": "nome",
-      "preco": 12,
-      "marca": "poa"
-    },
-    {
-      "id": 8,
-      "nome": "nome novo",
-      "preco": 100,
-      "marca": "marca nova"
-    },
-    {
-      "id": 9,
-      "nome": "asd",
-      "preco": 20,
-      "marca": "asd"
-    },
-    {
-      "id": 10,
-      "nome": "123123123",
-      "preco": 3123123123,
-      "marca": "3123123123"
-    },
-    {
-      "id": 11,
-      "nome": "lasdksaldk",
-      "preco": 12312,
-      "marca": "askdalskd"
+      "id": "5",
+      "nome": "Produto 05",
+      "preco": 5,
+      "marca": "Marca 05"
     }
   ]
 }

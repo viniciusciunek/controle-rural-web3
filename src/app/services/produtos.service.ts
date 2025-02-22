@@ -30,9 +30,17 @@ export class ProdutosService {
     }
   }
 
-  // obterProduto(id: number): Produto | undefined {
-  //   return this.produtos.find(produto => produto.id === id);
-  // }
+  async obterProduto(id: number): Promise<Produto | undefined> {
+    try {
+      const response = await Axios.get(`http://localhost:3000/produtos/${id}`);
+
+      return response.data;
+    } catch (error) {
+      console.error(error)
+
+      return undefined;
+    }
+  }
 
   async criarProduto(produto: Produto): Promise<boolean> {
     try {
@@ -40,7 +48,7 @@ export class ProdutosService {
 
       produto.id = novoId;
 
-      const response = await Axios.post('http://localhost:3000/produtos', produto);
+      await Axios.post('http://localhost:3000/produtos', produto);
 
       return true;
     } catch (error) {
@@ -50,15 +58,23 @@ export class ProdutosService {
     }
   }
 
-  // atualizarProduto(produto: Produto): void {
-  //   const index = this.produtos.findIndex(p => p.id === produto.id);
+  async atualizarProduto(produto: Produto): Promise<boolean> {
+    try {
+      await Axios.put(`http://localhost:3000/produtos/${produto.id}`, produto);
 
-  //   if (index !== -1) {
-  //     this.produtos[index] = produto;
-  //   }
-  // }
+      return true;
+    } catch (error) {
+      console.log(error)
 
-  // deletarProduto(id: number): void {
-  //   this.produtos = this.produtos.filter(p => p.id !== id);
-  // }
+      return false;
+    }
+  }
+
+  async deletarProduto(id: number): Promise<void> {
+    try {
+      await Axios.delete(`http://localhost:3000/produtos/${id}`);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }

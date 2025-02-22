@@ -1,27 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { Produto, ProdutosService } from '../../../services/produtos.service';
+import { Router, RouterLink } from '@angular/router';
 
 import Axios from 'axios';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { SuccessButtonComponent } from '../../../components/success-button/success-button.component';
 
 @Component({
   selector: 'app-produtos',
   templateUrl: './produtos.component.html',
   styleUrls: ['./produtos.component.css'],
-  imports: [FormsModule, CommonModule, RouterLink]
+  imports: [FormsModule, CommonModule, RouterLink, SuccessButtonComponent]
 })
 
 export class ProdutosComponent implements OnInit {
   produtos: Produto[] = [];
   produtoForm: Produto = { id: 0, nome: '', preco: 0, marca: '' };
   editMode: boolean = false;
+  label: string = '+ NOVO PRODUTO';
 
-  constructor(private produtosService: ProdutosService) { }
+  constructor(private produtosService: ProdutosService, private router: Router) { }
 
-  async ngOnInit(): Promise<void> {
-    await this.listarProdutos();
+  ngOnInit(): void {
+    this.listarProdutos();
   }
 
   async listarProdutos(): Promise<Produto[]> {
@@ -38,28 +40,20 @@ export class ProdutosComponent implements OnInit {
     }
   }
 
-  // salvarProduto(): void {
-  //   if (this.editMode) {
-  //     this.produtosService.atualizarProduto(this.produtoForm);
-  //   } else {
-  //     this.produtosService.criarProduto({ ...this.produtoForm });
-  //   }
-  //   this.limparFormulario();
-  //   this.listarProdutos();
-  // }
+  async excluirProduto(id: number): Promise<void> {
+    try {
+      const confirmacao = confirm('Deseja realmente excluir este produto?');
 
-  // editar(prod: Produto): void {
-  //   this.editMode = true;
-  //   this.produtoForm = { ...prod };
-  // }
+      if (!confirmacao) {
+        return;
+      }
 
-  // deletar(id: number): void {
-  //   this.produtosService.deletarProduto(id);
-  //   this.listarProdutos();
-  // }
+      await this.produtosService.deletarProduto(id);
 
-  // limparFormulario(): void {
-  //   this.produtoForm = { id: 0, nome: '', quantidade: 0, valor: 0 };
-  //   this.editMode = false;
-  // }
+      await this.listarProdutos();
+    } catch (error) {
+      console.error(error);
+      alert('Erro ao excluir produto!');
+    }
+  }
 }

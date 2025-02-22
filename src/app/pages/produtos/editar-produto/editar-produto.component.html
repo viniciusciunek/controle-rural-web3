@@ -1,1 +1,33 @@
-<p>editar-produto works!</p>
+<div class="card p-3 mb-3">
+  <h4 class="p-4 w-full rounded-md shadow shadow-green-800 font-bold text-xl text-green-800">Editar Produto -
+    #{{produtoForm.id}}</h4>
+
+  <div class="p-2 shadow shadow-green-800 rounded-md w-full mt-2 flex flex-col items-start justify-between">
+    <div class="flex flex-col items-start w-full">
+      <label>Nome</label>
+      <input [(ngModel)]="produtoForm.nome"
+        class="w-full form-control mb-2 focus:outline-none  border-2 border-gray-200 rounded-lg p-2" type="text" />
+    </div>
+
+    <div class="flex flex-col items-start w-full">
+      <label>Preço</label>
+      <input [(ngModel)]="produtoForm.preco"
+        class="w-full form-control mb-2 focus:outline-none  border-2 border-gray-200 rounded-lg p-2" type="number" />
+    </div>
+
+    <div class="flex flex-col items-start w-full">
+      <label>Marca</label>
+      <input [(ngModel)]="produtoForm.marca"
+        class="w-full form-control mb-2 focus:outline-none  border-2 border-gray-200 rounded-lg p-2" type="text" />
+    </div>
+
+    <div class="w-full flex flex-row-reverse gap-2 justify-between">
+      <button (click)="salvarProduto()"
+        class="bg-green-800 text-white p-2 rounded-md w-2/4 mt-2 uppercase font-bold cursor-pointer"> Salvar
+      </button>
+
+      <button (click)="limparFormulario()"
+        class="bg-red-600 text-white p-2 rounded-md w-2/4 mt-2 uppercase font-bold cursor-pointer">Cancelar</button>
+    </div>
+  </div>
+</div>
