@@ -24,6 +24,7 @@
       "preco": 189,
       "marca": "SeedMax"
     },
+    {
       "id": "5",
       "nome": "Adubo NPK 20-05-20 50kg",
       "preco": 145.75,
@@ -144,4 +145,5 @@
       "bairro": "Conradinho",
       "localidade": "Guarapuava",
       "uf": "PR"
+    }]
 }
