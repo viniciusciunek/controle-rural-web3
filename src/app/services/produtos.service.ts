@@ -1,10 +1,12 @@
+import Axios from 'axios';
 import { Injectable } from '@angular/core';
+import { __classPrivateFieldGet } from 'tslib';
 
 export interface Produto {
   id: number;
   nome: string;
-  quantidade: number;
-  valor: number;
+  preco: number;
+  marca: string;
 }
 
 @Injectable({
@@ -12,47 +14,67 @@ export interface Produto {
 })
 
 export class ProdutosService {
-  private produtos: Produto[] = [
-    { id: 1, nome: 'Produto 1', quantidade: 1, valor: 100 },
-    { id: 2, nome: 'Produto 2', quantidade: 2, valor: 200 },
-    { id: 3, nome: 'Produto 3', quantidade: 3, valor: 300 },
-    { id: 4, nome: 'Produto 4', quantidade: 4, valor: 400 },
-    { id: 5, nome: 'Produto 5', quantidade: 5, valor: 500 },
-    { id: 6, nome: 'Produto 6', quantidade: 6, valor: 600 },
-    { id: 7, nome: 'Produto 7', quantidade: 7, valor: 700 },
-    { id: 8, nome: 'Produto 8', quantidade: 8, valor: 800 },
-    { id: 9, nome: 'Produto 9', quantidade: 9, valor: 900 },
-    { id: 10, nome: 'Produto 10', quantidade: 10, valor: 1000 }
-  ]
-
   constructor() { }
 
-  listarProdutos(): Produto[] {
-    return this.produtos;
-  }
+  async listarProdutos(): Promise<Produto[]> {
+    try {
+      console.log('Buscando produtos...')
 
-  obterProduto(id: number): Produto | undefined {
-    return this.produtos.find(produto => produto.id === id);
-  }
+      const response = await Axios.get('http://localhost:3000/produtos');
 
-  criarProduto(produto: Produto): void {
-    const novoId = this.produtos.length > 0
-      ? Math.max(...this.produtos.map(p => p.id)) + 1
-      : 1;
-    produto.id = novoId;
-    this.produtos.push(produto);
-  }
+      return response.data
+    } catch (error) {
+      console.error("Erro: " + error);
 
-  atualizarProduto(produto: Produto): void {
-    const index = this.produtos.findIndex(p => p.id === produto.id);
-
-    if (index !== -1) {
-      this.produtos[index] = produto;
+      return [];
     }
   }
 
-  deletarProduto(id: number): void {
-    this.produtos = this.produtos.filter(p => p.id !== id);
+  async obterProduto(id: number): Promise<Produto | undefined> {
+    try {
+      const response = await Axios.get(`http://localhost:3000/produtos/${id}`);
+
+      return response.data;
+    } catch (error) {
+      console.error(error)
+
+      return undefined;
+    }
   }
 
+  async criarProduto(produto: Produto): Promise<boolean> {
+    try {
+      const novoId = (await this.listarProdutos()).length + 1
+
+      produto.id = novoId;
+
+      await Axios.post('http://localhost:3000/produtos', produto);
+
+      return true;
+    } catch (error) {
+      console.log(error)
+
+      return false;
+    }
+  }
+
+  async atualizarProduto(produto: Produto): Promise<boolean> {
+    try {
+      await Axios.put(`http://localhost:3000/produtos/${produto.id}`, produto);
+
+      return true;
+    } catch (error) {
+      console.log(error)
+
+      return false;
+    }
+  }
+
+  async deletarProduto(id: number): Promise<void> {
+    try {
+      await Axios.delete(`http://localhost:3000/produtos/${id}`);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
