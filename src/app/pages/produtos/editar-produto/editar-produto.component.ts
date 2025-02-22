@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class EditarProdutoComponent implements OnInit {
-  produtoForm: Produto = { id: 0, nome: '', preco: 0, marca: '' };
+  produtoForm: Produto = { id: '', nome: '', preco: 0, marca: '' };
   idProduto: number = 0;
 
   constructor(private route: ActivatedRoute, private produtosService: ProdutosService, private router: Router) { }
@@ -25,7 +25,7 @@ export class EditarProdutoComponent implements OnInit {
 
   async inicializarFormulario(): Promise<void> {
     try {
-      const produto = await this.produtosService.obterProduto(this.idProduto)
+      const produto = await this.produtosService.obterProduto(this.idProduto.toString())
 
       if (produto) {
         this.produtoForm = produto;
@@ -57,7 +57,7 @@ export class EditarProdutoComponent implements OnInit {
   }
 
   limparFormulario(): void {
-    this.produtoForm = { id: 0, nome: '', preco: 0, marca: '' };
+    this.produtoForm = { id: '', nome: '', preco: 0, marca: '' };
 
     this.router.navigate(['/produtos']);
   }
