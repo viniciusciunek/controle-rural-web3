@@ -15,18 +15,15 @@ import { SuccessButtonComponent } from '../../../components/success-button/succe
 })
 
 export class NovoProdutoComponent {
-  produtoForm: Produto = { id: 0, nome: '', preco: 0, marca: '' };
+  produtoForm: Produto = { id: '', nome: '', preco: 0, marca: '' };
   labelSuccess = "SALVAR"
   labelError = "CANCELAR"
 
   constructor(private produtosService: ProdutosService, private router: Router) { }
 
-  ngOnInit(): void {
-  }
-
   async salvarProduto(): Promise<void> {
     if (this.produtoForm.marca === '' || this.produtoForm.nome === '' || this.produtoForm.preco === 0) {
-      alert('Preencha todos os campos!');
+      alert('Preencha todos os campos!  ');
       return;
     }
 
@@ -46,7 +43,7 @@ export class NovoProdutoComponent {
   }
 
   limparFormulario(): void {
-    this.produtoForm = { id: 0, nome: '', preco: 0, marca: '' };
+    this.produtoForm = { id: '', nome: '', preco: 0, marca: '' };
 
     this.router.navigate(['/produtos']);
   }

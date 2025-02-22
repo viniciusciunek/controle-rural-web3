@@ -2,22 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Produto, ProdutosService } from '../../../services/produtos.service';
 import { Router, RouterLink } from '@angular/router';
 
-import Axios from 'axios';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { SuccessButtonComponent } from '../../../components/success-button/success-button.component';
 
 @Component({
   selector: 'app-produtos',
   templateUrl: './produtos.component.html',
   styleUrls: ['./produtos.component.css'],
-  imports: [FormsModule, CommonModule, RouterLink, SuccessButtonComponent]
+  imports: [CommonModule, RouterLink, SuccessButtonComponent]
 })
 
 export class ProdutosComponent implements OnInit {
   produtos: Produto[] = [];
-  produtoForm: Produto = { id: 0, nome: '', preco: 0, marca: '' };
-  editMode: boolean = false;
   label: string = '+ NOVO PRODUTO';
 
   constructor(private produtosService: ProdutosService, private router: Router) { }
@@ -40,7 +36,7 @@ export class ProdutosComponent implements OnInit {
     }
   }
 
-  async excluirProduto(id: number): Promise<void> {
+  async excluirProduto(id: string): Promise<void> {
     try {
       const confirmacao = confirm('Deseja realmente excluir este produto?');
 
@@ -48,7 +44,7 @@ export class ProdutosComponent implements OnInit {
         return;
       }
 
-      await this.produtosService.deletarProduto(id);
+      await this.produtosService.deletarProduto(id.toString());
 
       await this.listarProdutos();
     } catch (error) {
