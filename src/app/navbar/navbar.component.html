@@ -4,24 +4,17 @@
     <a href="#" class="text-white text-2xl font-bold">Controle Rural</a>
 
     <!-- Botão do Menu Hambúrguer (visível apenas em telas pequenas) -->
-    <button
-      class="text-white focus:outline-none lg:hidden"
-      (click)="toggleMenu()"
-      aria-label="Abrir menu"
-    >
+    <button class="text-white focus:outline-none lg:hidden" (click)="toggleMenu()" aria-label="Abrir menu">
       ☰
     </button>
 
     <!-- Links de Navegação (visíveis em telas maiores) -->
-    <ul
-      class="lg:flex lg:space-x-4 hidden"
-      [ngClass]="{ 'hidden': !isMenuOpen, 'block': isMenuOpen }"
-    >
+    <ul class="lg:flex lg:space-x-4 hidden" [ngClass]="{ 'hidden': !isMenuOpen, 'block': isMenuOpen }">
       <li>
         <a href="#" class="text-white hover:text-green-200 transition duration-300">Início</a>
       </li>
       <li>
-        <a href="#" class="text-white hover:text-green-200 transition duration-300">Gastos</a>
+        <a [routerLink]="['/despesas']" class="text-white hover:text-green-200 transition duration-300">Despesas</a>
       </li>
       <li>
         <a [routerLink]="['/produtos']" class="text-white hover:text-green-200 transition duration-300">Produtos</a>

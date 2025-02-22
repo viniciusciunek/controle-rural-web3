@@ -1,0 +1,113 @@
+<div class="card p-3 mb-3">
+  <h4 class="p-4 w-full rounded-md shadow shadow-green-800 font-bold text-xl text-green-800">Nova Despesa</h4>
+
+  <div class="p-2 shadow shadow-green-800 rounded-md w-full mt-2">
+    <div class="flex flex-row items-center justify-between gap-2">
+      <div class="flex flex-col items-start w-full">
+        <label>Nome</label>
+        <input [(ngModel)]="despesaForm.nome"
+          class="w-full form-control mb-2 focus:outline-none  border-2 border-gray-200 rounded-lg p-2" type="text"
+          placeholder="Ex: Compra de ração..." />
+      </div>
+
+      <div class="flex flex-col items-start w-full">
+        <label>Descrição</label>
+        <input [(ngModel)]="despesaForm.descricao"
+          class="w-full form-control mb-2 focus:outline-none  border-2 border-gray-200 rounded-lg p-2" type="text"
+          placeholder="Ex: Ração para os animais da fazenda..." />
+      </div>
+
+      <div class="flex flex-col items-start w-full">
+        <label>Categoria</label>
+
+        <select [(ngModel)]="despesaForm.categoria"
+          class="w-full form-control mb-2 focus:outline-none border-2 border-gray-200 rounded-lg p-2">
+          <option value="" disabled selected>Selecione uma categoria...</option>
+          <option *ngFor="let c of categorias" [value]="c.nome">{{ c.nome }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="flex flex-row items-center justify-between gap-2">
+      <div class="flex flex-col items-start w-full">
+        <label>Produto</label>
+
+        <select class="w-full form-control mb-2 focus:outline-none border-2 border-gray-200 rounded-lg p-2"
+          [(ngModel)]="produtoForm.id_produto">
+          <option value="" disabled selected>Selecione uma produto...</option>
+          <option *ngFor="let p of produtos" [value]="p.id">{{ p.nome }}</option>
+        </select>
+      </div>
+
+      <div class="flex flex-col items-start w-full">
+        <label>Quantidade</label>
+
+        <input class="w-full form-control mb-2 focus:outline-none  border-2 border-gray-200 rounded-lg p-2"
+          [(ngModel)]="produtoForm.quantidade" type="number" placeholder="0" />
+      </div>
+
+      <div class="flex flex-col items-start w-full">
+        <label>Valor</label>
+
+        <input class="w-full form-control mb-2 focus:outline-none  border-2 border-gray-200 rounded-lg p-2"
+          [(ngModel)]="produtoForm.valor_unitario" type="number" placeholder="0" />
+      </div>
+
+      <div class="mt-4">
+        <app-success-button [label]="labelAdicionarProduto" (click)="adicionarProduto()"></app-success-button>
+      </div>
+    </div>
+
+    <div>
+      <table class="min-w-full bg-gray-50 rounded-lg shadow border-2 border-green-800"
+        *ngIf="produtosAdicionados.length > 0">
+        <thead>
+          <tr class="text-sm text-left uppercase bg-green-800 text-white font-bold">
+            <th class="px-4 py-2 text-center border-b">ID</th>
+            <th class="px-4 py-2 text-center border-b">Nome</th>
+            <th class="px-4 py-2 text-center border-b">Quantidade</th>
+            <th class="px-4 py-2 text-center border-b">Valor Un.</th>
+            <th class="px-4 py-2 text-center border-b">Valor Total</th>
+            <th class="px-4 py-2 text-center border-b">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hover:bg-gray-100" *ngFor="let p of produtosAdicionados">
+            <td class="py-2 font-bold text-center text-gray-800 border-b">
+              {{ produtosAdicionados.indexOf(p) + 1 }}
+            </td>
+            <td class="py-2 font-bold text-center text-gray-800 border-b">{{p.nome}}</td>
+            <td class="py-2 font-bold text-center text-gray-800 border-b">{{p.quantidade}}</td>
+            <td class="py-2 font-bold text-center text-gray-800 border-b">R$ {{p.valor_unitario.toFixed(2)}}</td>
+            <td class="py-2 font-bold text-center text-gray-800 border-b col-span-2">R$ {{p.valor_total.toFixed(2)}}
+            </td>
+            <td class="py-2 font-bold text-center text-gray-800 border-b gap-2">
+              <button
+                class="rounded bg-transparent border border-red-600 text-white cursor-pointer hover:bg-red-700 px-2 p-1 mx-1"
+                title="Excluir" (click)="removerProduto(produtosAdicionados.indexOf(p))">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="none"
+                  class="size-6 stroke-red-600 hover:stroke-white">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                </svg>
+              </button>
+            </td>
+          </tr>
+          <tr class="bg-gray-200 font-bold" *ngIf="produtosAdicionados.length > 0">
+            <td colspan="4" class="py-2 text-center border-t">TOTAL GERAL</td>
+            <td class="py-2 text-center border-t">R$ {{ despesaForm.valor_total.toFixed(2) }}</td>
+            <td class="py-2 text-center border-t"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="w-full flex flex-row-reverse gap-2 justify-between">
+      <app-success-button (click)="salvarDespesa()" class="w-2/4! mt-2" [label]="labelSuccess"></app-success-button>
+
+      <app-error-button (click)="limparFormulario()" class="w-2/4! mt-2" [label]="labelError"></app-error-button>
+    </div>
+  </div>
+
+
+</div>

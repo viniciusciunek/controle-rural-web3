@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './visualizar-produto.component.css'
 })
 export class VisualizarProdutoComponent {
-  produto: Produto = { id: 0, nome: '', preco: 0, marca: '' };
+  produto: Produto = { id: '', nome: '', preco: 0, marca: '' };
 
   idProduto: number = 0;
 
@@ -20,10 +20,10 @@ export class VisualizarProdutoComponent {
   ngOnInit(): void {
     this.idProduto = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.buscarProduto(this.idProduto);
+    this.buscarProduto(this.idProduto.toString());
   }
 
-  async buscarProduto(id: number): Promise<Produto | null> {
+  async buscarProduto(id: string): Promise<Produto | null> {
     try {
       const produto = await this.produtosService.obterProduto(id)
 

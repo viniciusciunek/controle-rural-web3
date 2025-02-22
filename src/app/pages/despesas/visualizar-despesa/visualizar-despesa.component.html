@@ -1,0 +1,62 @@
+<div class="card p-3 mb-3">
+  <h4 class="p-4 w-full rounded-md shadow shadow-green-800 font-bold text-xl text-green-800">Visualizar Despesa -
+    #{{despesa.id}}</h4>
+
+  <div class="p-2 shadow shadow-green-800 rounded-md w-full mt-2">
+    <div class="flex flex-row items-center justify-between gap-2">
+      <div class="flex flex-col items-start w-full">
+        <label>Nome</label>
+        <input disabled class="w-full form-control mb-2 focus:outline-none  border-2 border-gray-200 rounded-lg p-2"
+          type="text" [value]="despesa.nome" placeholder="Ex: Compra de ração..." />
+      </div>
+
+      <div class="flex flex-col items-start w-full">
+        <label>Descrição</label>
+        <input [(value)]="despesa.descricao"
+          class="w-full form-control mb-2 focus:outline-none  border-2 border-gray-200 rounded-lg p-2" type="text"
+          disabled placeholder="Ex: Ração para os animais da fazenda..." />
+      </div>
+
+      <div class="flex flex-col items-start w-full">
+        <label>Categoria</label>
+
+        <input [(value)]="despesa.categoria" disabled
+          class="w-full form-control mb-2 focus:outline-none  border-2 border-gray-200 rounded-lg p-2" type="text" />
+      </div>
+    </div>
+
+    <div>
+      <label>Produtos</label>
+      <table class="min-w-full bg-gray-50 rounded-lg shadow border-2 border-green-800"
+        *ngIf="despesaProdutos.length > 0">
+        <thead>
+          <tr class="text-sm text-left uppercase bg-green-800 text-white font-bold">
+            <th class="px-4 py-2 text-center border-b">ID</th>
+            <th class="px-4 py-2 text-center border-b">Nome</th>
+            <th class="px-4 py-2 text-center border-b">Quantidade</th>
+            <th class="px-4 py-2 text-center border-b">Valor Un.</th>
+            <th class="px-4 py-2 text-center border-b">Valor Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="hover:bg-gray-100" *ngFor="let p of despesaProdutos">
+            <td class="py-2 font-bold text-center text-gray-800 border-b">
+              {{ despesaProdutos.indexOf(p) + 1 }}
+            </td>
+            <td class="py-2 font-bold text-center text-gray-800 border-b">{{ produtoNomes[p.produto_id] }}</td>
+            <td class="py-2 font-bold text-center text-gray-800 border-b">{{p.quantidade}}</td>
+            <td class="py-2 font-bold text-center text-gray-800 border-b">R$ {{p.valor_unitario.toFixed(2)}}</td>
+            <td class="py-2 font-bold text-center text-gray-800 border-b col-span-2">R$ {{p.valor_total.toFixed(2)}}
+            </td>
+          </tr>
+          <tr class="bg-gray-200 font-bold" *ngIf="despesaProdutos.length > 0">
+            <td colspan="4" class="py-2 text-center border-t">TOTAL GERAL</td>
+            <td class="py-2 text-center border-t">R$ {{ despesa.valor_total.toFixed(2) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+</div>

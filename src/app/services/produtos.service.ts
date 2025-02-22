@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { __classPrivateFieldGet } from 'tslib';
 
 export interface Produto {
-  id: number;
+  id: string;
   nome: string;
   preco: number;
   marca: string;
@@ -30,7 +30,7 @@ export class ProdutosService {
     }
   }
 
-  async obterProduto(id: number): Promise<Produto | undefined> {
+  async obterProduto(id: string): Promise<Produto | undefined> {
     try {
       const response = await Axios.get(`http://localhost:3000/produtos/${id}`);
 
@@ -46,7 +46,7 @@ export class ProdutosService {
     try {
       const novoId = (await this.listarProdutos()).length + 1
 
-      produto.id = novoId;
+      produto.id = novoId.toString();
 
       await Axios.post('http://localhost:3000/produtos', produto);
 
@@ -70,7 +70,7 @@ export class ProdutosService {
     }
   }
 
-  async deletarProduto(id: number): Promise<void> {
+  async deletarProduto(id: string): Promise<void> {
     try {
       await Axios.delete(`http://localhost:3000/produtos/${id}`);
     } catch (error) {

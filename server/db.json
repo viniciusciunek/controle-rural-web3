@@ -1,25 +1,128 @@
 {
   "produtos": [
     {
-      "id": "2",
-      "nome": "Produto 02222",
-      "preco": 200222,
-      "marca": "Marca 02"
+      "id": "1",
+      "nome": "Ração Bovina Premium 20kg",
+      "preco": 89.9,
+      "marca": "AgroNutri"
     },
     {
-      "id": "4",
-      "nome": "Produto 04",
-      "preco": 4,
-      "marca": "Teste Marca"
+      "id": "2",
+      "nome": "Herbicida Glifosato 5L",
+      "preco": 127.5,
+      "marca": "AgroDefense"
     },
     {
       "id": "3",
-      "nome": "maujricio",
-      "preco": 123,
-      "marca": "teste"
+      "nome": "Vacina Antirrábica 10 doses",
+      "preco": 54.8,
+      "marca": "VetFarm"
+    },
+    {
+      "id": "4",
+      "nome": "Semente de Milho Híbrido 5kg",
+      "preco": 189,
+      "marca": "SeedMax"
+    },
+      "id": "5",
+      "nome": "Adubo NPK 20-05-20 50kg",
+      "preco": 145.75,
+      "marca": "FertAgro"
+    },
+    {
+      "id": "6",
+      "nome": "Arame Farpaceiro 500m",
+      "preco": 239.9,
+      "marca": "Cercaforte"
+    },
+    {
+      "id": "7",
+      "nome": "Ordenhadeira Manual",
+      "preco": 427,
+      "marca": "BovinoTech"
+    },
+    {
+      "id": "8",
+      "nome": "Vermífugo Bovinos 1L",
+      "preco": 68.3,
+      "marca": "AnimalCare"
+    },
+    {
+      "id": "9",
+      "nome": "Capim Tifton 85 (Muda)",
+      "preco": 1.2,
+      "marca": "PastagemPlus"
+    },
+    {
+      "id": "10",
+      "nome": "Bomba D'Água 2HP",
+      "preco": 689,
+      "marca": "HydroAgro"
     }
   ],
-  "usuarios": [
+  "categorias": [
+    {
+      "id": "1",
+      "nome": "Alimentação Animal"
+    },
+    {
+      "id": "2",
+      "nome": "Defensivos Agrícolas"
+    },
+    {
+      "id": "3",
+      "nome": "Medicamentos Veterinários"
+    },
+    {
+      "id": "4",
+      "nome": "Sementes"
+    },
+    {
+      "id": "5",
+      "nome": "Fertilizantes"
+    },
+    {
+      "id": "6",
+      "nome": "Cerca e Infraestrutura"
+    },
+    {
+      "id": "7",
+      "nome": "Equipamentos"
+    },
+    {
+      "id": "8",
+      "nome": "Irrigação"
+    }
+  ],
+  "despesas": [
+    {
+      "id": "1",
+      "nome": "Compra de ração",
+      "descricao": "Ração e vacinas para nossas vacas.",
+      "categoria": "Alimentação Animal",
+      "valor_total": 6994,
+      "data": "2025-02-22"
+    }
+  ],
+  "despesas_produtos": [
+    {
+      "id": "1",
+      "despesa_id": "1",
+      "produto_id": 1,
+      "quantidade": 10,
+      "valor_unitario": 249.9,
+      "valor_total": 2499
+    },
+    {
+      "id": "1",
+      "despesa_id": "1",
+      "produto_id": 3,
+      "quantidade": 50,
+      "valor_unitario": 89.9,
+      "valor_total": 4495
+    }
+  ],
+   "usuarios": [
     {
       "id": "8099",
       "nome": "Mauricio Camillo Stempinhaki",
@@ -41,6 +144,4 @@
       "bairro": "Conradinho",
       "localidade": "Guarapuava",
       "uf": "PR"
-    }
-  ]
 }
