@@ -1,0 +1,40 @@
+<div class="card p-3 mb-3">
+  <h4 class="p-4 w-full rounded-md shadow shadow-green-800 font-bold text-xl text-green-800">
+    Novo Fornecedor
+  </h4>
+
+  <div class="p-2 shadow shadow-green-800 rounded-md w-full mt-2 flex flex-col items-start justify-between">
+    <div class="flex flex-col items-start w-full">
+      <label>Nome</label>
+      <input [(ngModel)]="fornecedorForm.nome"
+             class="w-full form-control mb-2 focus:outline-none border-2 border-gray-200 rounded-lg p-2"
+             type="text" />
+    </div>
+
+    <div class="flex flex-col items-start w-full">
+      <label>Cnpj</label>
+      <input [(ngModel)]="fornecedorForm.cnpj"
+             class="w-full form-control mb-2 focus:outline-none border-2 border-gray-200 rounded-lg p-2"
+             type="number" />
+    </div>
+
+    <div class="flex flex-col items-start w-full">
+      <label>Telefone</label>
+      <input [(ngModel)]="fornecedorForm.telefone"
+             class="w-full form-control mb-2 focus:outline-none border-2 border-gray-200 rounded-lg p-2"
+             type="text" />
+    </div>
+
+    <div class="w-full flex flex-row-reverse gap-2 justify-between">
+      <app-success-button (click)="salvarFornecedor()"
+                          class="w-2/4! mt-2"
+                          [label]="labelSuccess">
+      </app-success-button>
+
+      <app-error-button (click)="limparFormulario()"
+                        class="w-2/4! mt-2"
+                        [label]="labelError">
+      </app-error-button>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,10 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ProdutosComponent } from './pages/produtos/index-produto/produtos.component';
 import { VisualizarDespesaComponent } from './pages/despesas/visualizar-despesa/visualizar-despesa.component';
 import { VisualizarProdutoComponent } from './pages/produtos/visualizar-produto/visualizar-produto.component';
+import { IndexFornecedorComponent } from './pages/fornecedor/index-fornecedor/index-fornecedor.component';
+import { VisualizarFornecedorComponent } from './pages/fornecedor/visualizar-fornecedor/visualizar-fornecedor.component';
+import { NovoFornecedorComponent } from './pages/fornecedor/novo-fornecedor/novo-fornecedor.component';
+import { EditarFornecedorComponent } from './pages/fornecedor/editar-fornecedor/editar-fornecedor.component';
 
 export const routes: Routes = [
   { path: 'produtos', component: ProdutosComponent },
@@ -21,6 +25,7 @@ export const routes: Routes = [
       { path: 'visualizar/:id', component: VisualizarProdutoComponent }
     ]
   },
+  
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'despesas', component: IndexDespesaComponent },
@@ -30,6 +35,16 @@ export const routes: Routes = [
       { path: 'visualizar/:id', component: VisualizarDespesaComponent }
     ]
   },
+  { path: 'fornecedor', component: IndexFornecedorComponent },
+  {
+    path: 'fornecedor', children: [
+      { path: 'nov', component: NovoFornecedorComponent },
+      { path: 'editar/:id', component: EditarFornecedorComponent },
+      { path: 'visualizar/:id', component: VisualizarFornecedorComponent}
+    ]
+  },
+  
+  
 ];
 
 @NgModule({

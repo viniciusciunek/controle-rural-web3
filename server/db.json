@@ -186,5 +186,13 @@
       "localidade": "Guarapuava",
       "uf": "PR"
     }
+  ],
+  "fornecedor": [
+    {
+      "id": "1",
+      "nome": "sadsa",
+      "cnpj": 23232323,
+      "telefone": "2332323"
+    }
   ]
 }
