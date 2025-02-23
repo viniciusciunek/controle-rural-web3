@@ -65,6 +65,30 @@
       "nome": "Produto Novo",
       "preco": 120,
       "marca": "123"
+    },
+    {
+      "id": "12",
+      "nome": "Óleo Diesel (litro)",
+      "preco": 5.80,
+      "marca": "PetroRural"
+    },
+    {
+      "id": "13",
+      "nome": "Filtro de Ar para Trator",
+      "preco": 87.90,
+      "marca": "AgroMecânica"
+    },
+    {
+      "id": "14",
+      "nome": "Kit Ferramentas Agrícolas",
+      "preco": 349.90,
+      "marca": "ForteTools"
+    },
+    {
+      "id": "15",
+      "nome": "Calcário Agrícola (saco 50kg)",
+      "preco": 32.50,
+      "marca": "SoilCorrect"
     }
   ],
   "categorias": [
@@ -125,6 +149,54 @@
       "categoria": "Defensivos Agrícolas",
       "valor_total": 50,
       "data": "2025-02-22"
+    },
+    {
+      "id": "4",
+      "nome": "Vacina",
+      "descricao": "Vacina",
+      "categoria": "Medicamentos Veterinários",
+      "valor_total": 11584,
+      "data": "2025-02-23"
+    },
+    {
+      "id": "5",
+      "nome": "Manutenção de Tratores - Jan/25",
+      "descricao": "Peças e lubrificantes para frota",
+      "categoria": "Equipamentos",
+      "valor_total": 2875.30,
+      "data": "2025-01-15"
+    },
+    {
+      "id": "6",
+      "nome": "Preparação do Solo - Fev/25",
+      "descricao": "Corretivos e fertilizantes para plantio",
+      "categoria": "Fertilizantes",
+      "valor_total": 8450.00,
+      "data": "2025-02-05"
+    },
+    {
+      "id": "7",
+      "nome": "Combustível - Mar/25",
+      "descricao": "Abastecimento da frota",
+      "categoria": "Equipamentos",
+      "valor_total": 15620.80,
+      "data": "2025-03-10"
+    },
+    {
+      "id": "8",
+      "nome": "Sementes de Soja - Abr/25",
+      "descricao": "Aquisição para plantio da safra",
+      "categoria": "Sementes",
+      "valor_total": 23450.00,
+      "data": "2025-04-01"
+    },
+    {
+      "id": "9",
+      "nome": "Medicamentos Aves - Jan/25",
+      "descricao": "Vacinas para aviário",
+      "categoria": "Medicamentos Veterinários",
+      "valor_total": 4780.50,
+      "data": "2025-01-20"
     }
   ],
   "despesas_produtos": [
@@ -167,6 +239,70 @@
       "quantidade": 1,
       "valor_unitario": 10,
       "valor_total": 10
+    },
+    {
+      "id": "5",
+      "despesa_id": "4",
+      "produto_id": 7,
+      "quantidade": 20,
+      "valor_unitario": 19.9,
+      "valor_total": 398
+    },
+    {
+      "id": "6",
+      "despesa_id": "4",
+      "produto_id": 3,
+      "quantidade": 140,
+      "valor_unitario": 79.9,
+      "valor_total": 11186
+    },
+    {
+      "id": "7",
+      "despesa_id": "5",
+      "produto_id": 12,
+      "quantidade": 300,
+      "valor_unitario": 5.80,
+      "valor_total": 1740.00
+    },
+    {
+      "id": "8",
+      "despesa_id": "5",
+      "produto_id": 13,
+      "quantidade": 13,
+      "valor_unitario": 87.90,
+      "valor_total": 1135.30
+    },
+    {
+      "id": "9",
+      "despesa_id": "6",
+      "produto_id": 15,
+      "quantidade": 260,
+      "valor_unitario": 32.50,
+      "valor_total": 8450.00
+    },
+    {
+      "id": "10",
+      "despesa_id": "7",
+      "produto_id": 12,
+      "quantidade": 2690,
+      "valor_unitario": 5.80,
+      "valor_total": 15602.00
+    },
+    {
+      "id": "11",
+      "despesa_id": "8",
+      "produto_id": 4,
+      "quantidade": 125,
+      "valor_unitario": 187.60,
+      "valor_total": 23450.00
+    },
+    {
+      "id": "12",
+      "despesa_id": "9",
+      "produto_id": 3,
+      "quantidade": 85,
+      "valor_unitario": 56.20,
+      "valor_total": 4780.50
     }
   ],
   "usuarios": [

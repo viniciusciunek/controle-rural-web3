@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { EditarProdutoComponent } from './pages/produtos/editar-produto/editar-produto.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IndexDespesaComponent } from './pages/despesas/index-despesa/index-despesa.component';
-import {LoginComponent} from './pages/login/login.component';
+import { IndexRelatorioComponent } from './pages/relatorios/index-relatorio/index-relatorio.component';
+import { LoginComponent } from './pages/login/login.component';
 import { NgModule } from '@angular/core';
 import { NovaDespesaComponent } from './pages/despesas/nova-despesa/nova-despesa.component';
 import { NovoProdutoComponent } from './pages/produtos/novo-produto/novo-produto.component';
@@ -31,10 +32,12 @@ export const routes: Routes = [
       { path: 'visualizar/:id', component: VisualizarDespesaComponent }
     ]
   },
+
+  { path: 'relatorios', component: IndexRelatorioComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), CommonModule, HttpClientModule ],
+  imports: [RouterModule.forRoot(routes), CommonModule, HttpClientModule],
   declarations: [],
   exports: [RouterModule]
 })
