@@ -53,10 +53,10 @@ Aplicação web para gestão de estoque e despesas em propriedades rurais, desen
 - [x] ID14: Sistema de rotas configurado
 - [x] ID15: Passagem de parâmetros (/editar/:id)
 - [x] ID16: Rotas aninhadas (/produtos/editar)
-- [ ] ID17: Guards de rotas
+- [x] ID17: Guards de rotas
 
 ### RA6 - Requisições
-- [ ] ID18: API pública externa
+- [x] ID18: API pública externa
 - [x] ID19: CRUD completo com JSON Server
 - [x] ID20: Tratamento básico de erros
 - [x] ID21: Validação de campos obrigatórios
