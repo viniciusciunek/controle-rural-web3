@@ -308,6 +308,17 @@
   "usuarios": [
     {
       "id": "8099",
+      "nome": "Vinicius Ciunek",
+      "email": "vinicin@gmail.com",
+      "senha": "123456",
+      "cep": "85055090",
+      "logradouro": "Rua Sorocaba",
+      "bairro": "Conradinho",
+      "localidade": "Guarapuava",
+      "uf": "PR"
+    },
+    {
+      "id": "8099",
       "nome": "Mauricio Camillo Stempinhaki",
       "email": "asdas@penis.com",
       "senha": "asdasda",

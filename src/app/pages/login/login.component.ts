@@ -1,9 +1,11 @@
 // src/app/pages/login/login.component.ts
 
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
 import { AuthService } from '../../services/auth.service';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,7 @@ export class LoginComponent {
   errorMessage: string = '';
   successMessage: string = '';
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(6)]]
@@ -36,7 +38,8 @@ export class LoginComponent {
       const usuario = await this.authService.loginUser(email, senha);
       this.successMessage = `Bem-vindo, ${usuario.nome}!`;
       this.errorMessage = '';
-      // Redirecionar para outra rota, se desejar
+
+      this.router.navigate(['dashboard']);
     } catch (error: any) {
       this.errorMessage = error.message || 'Erro ao fazer login.';
       this.successMessage = '';
