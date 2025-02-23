@@ -1,103 +1,85 @@
 # Controle Rural
 
-**Autor:** Vinicius Ciunek & Mauricio Stempinhaki
+**Autores:** Vinicius Ciunek & Mauricio Stempinhaki
 
 ## Descrição do Projeto
-
-Este projeto tem como objetivo implementar uma aplicação web para controle de fluxo de dados de uma fazenda. O sistema visa gerenciar a entrada de mercadorias, gastos e despesas mensais, além de possibilitar o cadastro de fornecedores e produtos. A aplicação foi desenvolvida utilizando o framework Angular.
+Aplicação web para gestão de estoque e despesas em propriedades rurais, desenvolvida em Angular, com funcionalidades de:
+- Cadastro de produtos (insumos agrícolas, rações, equipamentos)
+- Registro de despesas operacionais
+- Controle de estoque e movimentações financeiras
+- Relacionamento com fornecedores
 
 ## Tema e Escopo
-
-- **Tema:** Controle de dados e fluxo de mercadorias em uma fazenda.
-- **Escopo:** Gerenciar entradas de mercadorias, gastos e despesas mensais, e cadastro de fornecedores.
+- **Tema:** Sistema de gestão rural integrado
+- **Escopo Principal:**
+  - Cadastro de produtos e categorias
+  - Registro de despesas com relacionamento a produtos
+  - Controle de estoque e fluxo financeiro
+  - Interface responsiva para uso em campo
 
 ## Protótipo no Figma
+[Protótipo da Aplicação no Figma](https://www.figma.com) *(link atualizar)*
 
-[Protótipo da Aplicação no Figma](https://www.figma.com)
+## Tecnologias Principais
+- **Angular 19** (Framework principal)
+- **Tailwind CSS** (Estilização responsiva)
+- **JSON Server** (API simulada)
+- **Axios** (Cliente HTTP)
 
-## Design System
+## Checklist Atualizado
 
-[Documento do Design System](https://www.figma.com)
-*(Substitua pelo link real do seu design system)*
+### RA1 - Prototipagem
+- [x] ID1: Protótipos no Figma
+- [x] ID2: Design responsivo implementado
 
-## Framework CSS Utilizado
+### RA2 - Componentes
+- [x] ID3: Componentes reutilizáveis (ex: SuccessButtonComponent)
+- [x] ID4: Tailwind CSS integrado
+- [x] ID5: Diretivas *ngIf (ex: validação de formulários)
+- [x] ID6: Diretivas *ngFor (listagem de produtos/despesas)
+- [x] ID7: Pipes nativos (date, number)
 
-**Tailwind CSS**
+### RA3 - Data Binding
+- [x] ID8: Interpolation ({{ variaveis }})
+- [x] ID9: Event binding ((click), (submit))
+- [x] ID10: Two-way binding ([(ngModel)])
+- [ ] ID11: Variáveis de template
 
-## Dependências
+### RA4 - Comunicação
+- [x] ID12: Serviços compartilhados (DespesasService, ProdutosService)
+- [x] ID13: @Input/@Output (SuccessButtonComponent)
 
-- **Angular:** Framework principal para desenvolvimento da aplicação.
-- **Tailwind CSS:** Framework CSS para estilização responsiva e moderna.
-- **Axios:** Biblioteca para requisições HTTP, utilizada para comunicação com o JSON Server.
-- Outras dependências são gerenciadas via `npm` conforme definido no `package.json`.
+### RA5 - Roteamento
+- [x] ID14: Sistema de rotas configurado
+- [x] ID15: Passagem de parâmetros (/editar/:id)
+- [x] ID16: Rotas aninhadas (/produtos/editar)
+- [ ] ID17: Guards de rotas
 
-## Link para o Site em Produção
+### RA6 - Requisições
+- [ ] ID18: API pública externa
+- [x] ID19: CRUD completo com JSON Server
+- [x] ID20: Tratamento básico de erros
+- [x] ID21: Validação de campos obrigatórios
+- [x] ID22: Botão desabilitado em formulários inválidos
+- [x] ID23: Implementação com Promises
+- [ ] ID24: Implementação com Observables
 
-[Aplicação no GitHub Pages](https://github.com)
+### RA7 - Versionamento
+- [x] ID25: Repositório GitHub com estrutura básica
+- [x] ID26: Colaboração via GitHub
+- [ ] ID27: Deploy em produção
 
-## Checklist de Funcionalidades
+## Execução do Projeto
+```bash
+# Clone o repositório
+git clone https://github.com/viniciusciunek/controle-rural-web3.git
+cd controle-rural-web3
 
-### RA1 - Prototipar e projetar interfaces gráficas de usuário
-- [x] ID1: Prototipagem de interfaces que demonstram usabilidade
-- [x] ID2: Design de interfaces responsivas
+# Instale as dependências
+npm install
 
-### RA2 - Criar e reutilizar componentes em frameworks frontend
-- [x] ID3: Desenvolvimento de componentes reutilizáveis
-- [x] ID4: Integração de frameworks CSS
-- [x] ID5: Aplicação de diretivas estruturais
-- [x] ID6: Criação de listas e galerias dinâmicas
-- [ ] ID7: Uso eficaz de Pipes para formatação de dados
+# Inicie o backend simulado (em terminal separado)
+npx json-server --watch server/db.json
 
-### RA3 - Sincronizar dados entre interface gráfica e modelo de dados
-- [ ] ID8: Aplicação de one-way data binding
-- [ ] ID9: Event binding para interação com o modelo
-- [ ] ID10: Implementação de two-way data binding
-- [ ] ID11: Uso de variáveis de template
-
-### RA4 - Implementar comunicação entre componentes
-- [ ] ID12: Comunicação entre componentes via serviços
-- [ ] ID13: Uso das diretivas @Input e @Output
-
-### RA5 - Criar interfaces de navegação intuitivas
-- [ ] ID14: Configuração de rotas na aplicação
-- [ ] ID15: Passagem de dados entre componentes
-- [ ] ID16: Estrutura de navegação aninhada
-- [ ] ID17: Aplicação de guardas de rotas
-
-### RA6 - Realizar requisições assíncronas
-- [ ] ID18: Requisições a uma API pública
-- [ ] ID19: Requisições a uma API simulada
-- [ ] ID20: Tratamento de respostas de requisições
-- [ ] ID21: Validações de entrada em formulários
-- [ ] ID22: Desabilitação de submit em campos inválidos
-- [ ] ID23: Uso de Promises para tratar respostas
-- [ ] ID24: Uso de Observables para tratar respostas
-
-### RA7 - Gerenciar o código-fonte de maneira eficiente
-- [ ] ID25: Criação do repositório no GitHub com Gitflow
-- [ ] ID26: Colaboração efetiva no desenvolvimento
-- [ ] ID27: Configuração e execução do processo de build
-
-## Instruções de Execução
-
-1. **Clonar o repositório:**
-   ```bash
-   git clone https://github.com/viniciusciunek/controle-rural-web3.git
-
-2. **Acessar o diretório do projeto:**
-   ```bash
-    cd controle-rural-web3
-
-3. **Instalar as dependências:**
-  ```bash
-    npm install
-
-4. **Iniciar nosso banco de dados:**
-    ```bash
-    npx json-server --watch server/db.json
-
-5. **Executar o projeto:**
-  ```bash
-  ng serve --open
-
-### A aplicação estará disponível em http://localhost:4200/.
+# Execute a aplicação
+ng serve --open
