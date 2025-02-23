@@ -59,6 +59,12 @@
       "nome": "Bomba D'Água 2HP",
       "preco": 689,
       "marca": "HydroAgro"
+    },
+    {
+      "id": "11",
+      "nome": "Produto Novo",
+      "preco": 120,
+      "marca": "123"
     }
   ],
   "categorias": [
