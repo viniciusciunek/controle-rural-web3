@@ -39,7 +39,6 @@ export const routes: Routes = [
     ]
   },
   { path: 'relatorios', component: IndexRelatorioComponent, canActivate: [AuthGuard] }
-
 ];
 
 @NgModule({
