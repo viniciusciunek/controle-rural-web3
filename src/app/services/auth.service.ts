@@ -1,5 +1,3 @@
-// src/app/services/auth.service.ts
-
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 
@@ -21,7 +19,6 @@ export class AuthService {
     uf: string;
   }): Promise<any> {
     try {
-      // Verifica se o e-mail já está cadastrado
       const { data: usuarios } = await axios.get(`${this.apiURL}?email=${userData.email}`);
       if (usuarios.length > 0) {
         throw new Error('E-mail já cadastrado!');
@@ -33,7 +30,6 @@ export class AuthService {
       throw error;
     }
   }
-
 
   async loginUser(email: string, senha: string): Promise<any> {
     try {
@@ -47,9 +43,20 @@ export class AuthService {
         throw new Error('Senha incorreta!');
       }
 
+      localStorage.setItem('user', JSON.stringify(usuario));
+
       return usuario;
     } catch (error) {
       throw error;
     }
   }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('user');
+  }
+
+  logout(): void {
+    localStorage.removeItem('user');
+  }
+
 }

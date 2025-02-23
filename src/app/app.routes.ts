@@ -1,6 +1,8 @@
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from './guards/auth.guard';
 import { CommonModule } from '@angular/common';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { EditarProdutoComponent } from './pages/produtos/editar-produto/editar-produto.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IndexDespesaComponent } from './pages/despesas/index-despesa/index-despesa.component';
@@ -15,25 +17,28 @@ import { VisualizarDespesaComponent } from './pages/despesas/visualizar-despesa/
 import { VisualizarProdutoComponent } from './pages/produtos/visualizar-produto/visualizar-produto.component';
 
 export const routes: Routes = [
-  { path: 'produtos', component: ProdutosComponent },
-  {
-    path: 'produtos', children: [
-      { path: 'novo', component: NovoProdutoComponent },
-      { path: 'editar/:id', component: EditarProdutoComponent },
-      { path: 'visualizar/:id', component: VisualizarProdutoComponent }
-    ]
-  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'despesas', component: IndexDespesaComponent },
+
+
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+
+  { path: 'produtos', component: ProdutosComponent, canActivate: [AuthGuard] },
   {
-    path: 'despesas', children: [
-      { path: 'nova', component: NovaDespesaComponent },
-      { path: 'visualizar/:id', component: VisualizarDespesaComponent }
+    path: 'produtos', children: [
+      { path: 'novo', component: NovoProdutoComponent, canActivate: [AuthGuard] },
+      { path: 'editar/:id', component: EditarProdutoComponent, canActivate: [AuthGuard] },
+      { path: 'visualizar/:id', component: VisualizarProdutoComponent, canActivate: [AuthGuard] }
     ]
   },
-
-  { path: 'relatorios', component: IndexRelatorioComponent }
+  { path: 'despesas', component: IndexDespesaComponent, canActivate: [AuthGuard] },
+  {
+    path: 'despesas', children: [
+      { path: 'nova', component: NovaDespesaComponent, canActivate: [AuthGuard] },
+      { path: 'visualizar/:id', component: VisualizarDespesaComponent, canActivate: [AuthGuard] }
+    ]
+  },
+  { path: 'relatorios', component: IndexRelatorioComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
