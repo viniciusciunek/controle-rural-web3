@@ -111,14 +111,6 @@
       "categoria": "Alimentação Animal",
       "valor_total": 1149,
       "data": "2025-02-22"
-    },
-    {
-      "id": "3",
-      "nome": "teste",
-      "descricao": "testes",
-      "categoria": "Defensivos Agrícolas",
-      "valor_total": 50,
-      "data": "2025-02-22"
     }
   ],
   "despesas_produtos": [
@@ -145,22 +137,6 @@
       "quantidade": 20,
       "valor_unitario": 2.5,
       "valor_total": 50
-    },
-    {
-      "id": "4",
-      "despesa_id": "3",
-      "produto_id": 4,
-      "quantidade": 20,
-      "valor_unitario": 2,
-      "valor_total": 40
-    },
-    {
-      "id": "4",
-      "despesa_id": "3",
-      "produto_id": 1,
-      "quantidade": 1,
-      "valor_unitario": 10,
-      "valor_total": 10
     }
   ],
   "usuarios": [

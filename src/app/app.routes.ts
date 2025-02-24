@@ -15,6 +15,7 @@ import { IndexFornecedorComponent } from './pages/fornecedor/index-fornecedor/in
 import { VisualizarFornecedorComponent } from './pages/fornecedor/visualizar-fornecedor/visualizar-fornecedor.component';
 import { NovoFornecedorComponent } from './pages/fornecedor/novo-fornecedor/novo-fornecedor.component';
 import { EditarFornecedorComponent } from './pages/fornecedor/editar-fornecedor/editar-fornecedor.component';
+import { RealPipe } from './real.pipe';
 
 export const routes: Routes = [
   { path: 'produtos', component: ProdutosComponent },
@@ -48,7 +49,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), CommonModule, HttpClientModule ],
+  imports: [RouterModule.forRoot(routes), CommonModule, HttpClientModule],
   declarations: [],
   exports: [RouterModule]
 })

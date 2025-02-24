@@ -1,12 +1,12 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Produto, ProdutosService } from '../../../services/produtos.service';
-
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RealPipe } from '../../../real.pipe';
 
 @Component({
   selector: 'app-visualizar-produto',
-  imports: [FormsModule],
+  imports: [FormsModule, RealPipe],
   templateUrl: './visualizar-produto.component.html',
   styleUrl: './visualizar-produto.component.css'
 })

@@ -1,3 +1,4 @@
+
 <div class="card p-3 mb-3">
   <h4 class="p-4 w-full rounded-md shadow shadow-green-800 font-bold text-xl text-green-800">Visualizando Produto -
     #{{produto.id}}</h4>
@@ -12,9 +13,9 @@
 
     <div class="flex flex-col items-start w-full">
       <label>Preço</label>
-      <input [(ngModel)]="produto.preco"
-        class="w-full form-control mb-2 focus:outline-none  border-2 border-gray-200 rounded-lg p-2" type="number"
-        disabled />
+      <input [value]="produto.preco | real"
+             class="w-full mb-2 border-2 border-gray-200 rounded-lg p-2"
+             type="text" disabled />
     </div>
 
     <div class="flex flex-col items-start w-full">
